@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/*
+ * FitPassport design tokens.
+ *
+ * The palette is intentionally warm and low-contrast: paper-toned surfaces,
+ * near-black ink and a single muted brass accent. Components should use these
+ * tokens (bg-paper, text-ink, border-line, ...) instead of raw colour values.
+ */
+@theme inline {
+  --color-ink: #14140f;
+  --color-ink-muted: #57534a;
+  --color-ink-faint: #6f695c;
+
+  --color-paper: #f8f6f2;
+  --color-paper-raised: #fffdfa;
+
+  --color-line: #e4dfd5;
+  --color-line-strong: #cec8ba;
+
+  --color-accent: #75572c;
+  --color-danger: #9a2f22;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+
+  --radius-card: 1.5rem;
+  --radius-field: 0.75rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
